@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_int_tab.c                                     :+:      :+:    :+:   */
+/*   pgcd.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/22 09:42:06 by exam              #+#    #+#             */
-/*   Updated: 2016/06/22 09:42:31 by exam             ###   ########.fr       */
+/*   Created: 2016/06/22 09:28:14 by exam              #+#    #+#             */
+/*   Updated: 2016/06/22 09:28:22 by exam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	sort_int_tab(int *tab, unsigned int size)
-{
-	unsigned int	i;
-	unsigned int	j;
-	int				tmp;
+#include <stdio.h>
+#include <stdlib.h>
 
-	i = 0;
-	while (i < size)
+int	ft_pgcd(int n1, int n2)
+{
+	int	i;
+	int	pgcd;
+
+	i = 1;
+	pgcd = 0;
+	while (i <= n1 && i <= n2)
 	{
-		j = 0;
-		while (j < size && (j + 1) < size)
-		{
-			if (tab[j] > tab[j + 1])
-			{
-				tmp = tab[j];
-				tab[j] = tab[j + 1];
-				tab[j + 1] = tmp;
-			}
-			j++;
-		}
+		if (n1 % i == 0 && n2 % i == 0)
+			pgcd = i;
 		i++;
 	}
+	return (pgcd);
+}
+
+int	main(int ac, char **av)
+{
+	if (ac == 3)
+		printf("%d", ft_pgcd(atoi(av[1]), atoi(av[2])));
+	printf("\n");
+	return (0);
 }

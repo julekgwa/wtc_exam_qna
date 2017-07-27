@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_int_tab.c                                     :+:      :+:    :+:   */
+/*   max.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/22 09:42:06 by exam              #+#    #+#             */
-/*   Updated: 2016/06/22 09:42:31 by exam             ###   ########.fr       */
+/*   Created: 2016/04/15 15:40:26 by exam              #+#    #+#             */
+/*   Updated: 2016/04/15 15:42:10 by exam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	sort_int_tab(int *tab, unsigned int size)
+int	max(int *tab, int len)
 {
-	unsigned int	i;
-	unsigned int	j;
-	int				tmp;
+	int	max;
+	int	i;
 
+	max = 0;
 	i = 0;
-	while (i < size)
+	if (len == 0)
+		return (0);
+	while (i < len)
 	{
-		j = 0;
-		while (j < size && (j + 1) < size)
-		{
-			if (tab[j] > tab[j + 1])
-			{
-				tmp = tab[j];
-				tab[j] = tab[j + 1];
-				tab[j + 1] = tmp;
-			}
-			j++;
-		}
+		if (tab[i] > max)
+			max = tab[i];
 		i++;
 	}
+	return (max);
 }
